@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare - Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/main.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.8/main.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body class="admin-dashboard">
+    <nav class="admin-navbar">
+        <div class="nav-left">
+            <span class="logo">MediCare Admin</span>
+        </div>
+        <div class="nav-right">
+            <button id="logout-btn" class="logout-btn">Log Out</button>
+            
+
+        </div>
+    </nav>
+
+    <main class="admin-main">
+        <h1 class="dashboard-title">Appointments Overview</h1>
+        
+          
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">1,206</div>
+                <div class="stat-label">All</div>
+            </div>
+            <div class="stat-card new">
+                <div class="stat-value">2455</div>
+                <div class="stat-label">New</div>
+            </div>
+            <div class="stat-card today">
+                <div class="stat-value"></div>
+                <div class="stat-label">Today</div>
+            </div>
+            <div class="stat-card cancelled">
+                <div class="stat-value">1,200</div>
+                <div class="stat-label">Cancelled</div>
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="chart-container">
+                <h2>Appointments</h2>
+                <canvas id="appointmentsChart"></canvas>
+            </div>
+            
+            <div class="sidebar">
+                <div class="calendar-card">
+                    <h3>Date</h3>
+                    <div class="date-picker-container">
+                        <input type="date" id="datePicker" style="padding: 0.5rem; border: 1px solid #ccc; border-radius: 6px;">
+                    </div>                    
+                    <div id="calendar"></div>
+                    <div class="date-appointments">
+                        <div id="date-appointments-list" class="appointments-list">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="specialization-card">
+                    <h3>Appointment Booked</h3>
+                    <canvas id="specializationChart"></canvas>
+                    <div class="legend">
+                        <div><span class="cardiology-dot"></span> Cardiology 80%</div>
+                        <div><span class="neurology-dot"></span> Neurology 80%</div>
+                        <div><span class="generalmedecine-dot"></span> General Medecine 80%</div>
+
+                    </div>
+                </div>
+            </div>
+    </main>
+
+</body> 
+
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/main.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.8/main.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@6.1.8/main.min.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
