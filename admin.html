@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare - Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/main.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.8/main.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head> 
+
+<body class="admin-dashboard"> 
+
+    <nav class="admin-navbar">
+        <div class="nav-left">
+            <span class="logo">
+                <img src="pics/medi.png" alt="Logo" class="logo-img">
+                MediCare Admin
+            </span>
+        </div>
+        <div class="nav-right">
+            <button id="logout-btn" class="logout-btn">Log Out</button>
+        </div>
+    </nav>
+
+    <main class="admin-main">
+        <h1 class="dashboard-title">Appointments Overview</h1>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-content">
+                    <div>
+                        <div class="stat-value"></div>
+                        <div class="stat-label">All</div>
+                    </div>
+                    <img src="pics/all.png" class="stat-icon" alt="Calendar">
+                </div>
+            </div>
+            <div class="stat-card new">
+                <div class="stat-content">
+                    <div>
+                        <div class="stat-value"></div>
+                        <div class="stat-label">New</div>
+                    </div>
+                    <img src="pics/new.png" class="stat-icon" alt="New">
+                </div>
+            </div>
+            <div class="stat-card completed">
+                <div class="stat-content">
+                    <div>
+                        <div class="stat-value"></div>
+                        <div class="stat-label">Completed</div>
+                    </div>
+                    <img src="pics/completed.png" class="stat-icon" alt="completed">
+                </div>
+            </div>
+            <div class="stat-card cancelled">
+                <div class="stat-content">
+                    <div>
+                        <div class="stat-value"></div>
+                        <div class="stat-label">Cancelled</div>
+                    </div>
+                    <img src="pics/cancelled.jpg" class="stat-icon" alt="Cancelled">
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="chart-container">
+                <h2>Appointments</h2>
+                <canvas id="appointmentsChart"></canvas>
+            </div>
+            
+            <div class="sidebar">
+                <div class="calendar-card">
+                    <h3>Date</h3>
+                    <div class="date-picker-container">
+                        <input type="date" id="datePicker" style="padding: 0.5rem; border: 1px solid #ccc; border-radius: 6px;">
+                    </div>                    
+                    <div id="calendar"></div>
+                    <div class="date-appointments">
+                        <div id="date-appointments-list" class="appointments-list">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="specialization-card">
+                    <h3>Appointment Booked</h3>
+                    <canvas id="specializationChart"></canvas>
+                    <div class="legend">
+                        <div><span class="cardiology-dot"></span> Cardiology </div>
+                        <div><span class="neurology-dot"></span> Neurology </div>
+                        <div><span class="generalmedecine-dot"></span> General Medecine </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="appointments-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Patient</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Doctor</th>
+                    <th>Department</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="all-appointments-body">
+                <!-- Will be populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.8/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@6.1.8/main.min.js"></script>
+    <script src="admin.js"></script>
+
+</body>
+</html>
